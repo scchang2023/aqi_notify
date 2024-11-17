@@ -24,8 +24,8 @@ def downloadAqiData(api_key, format="json", limit=1000):
 
 def parseAqiData(data):
     if "records" in data:
-        for record in data["records"][:]:  # 印出幾條
-            print(f"位置: {record['sitename']}, AQI: {record['aqi']}, PM2.5: {record['pm2.5']}, 狀態: {record['status']}")
+        # for record in data["records"][:]:  # 印出幾條
+        #     print(f"位置: {record['sitename']}, AQI: {record['aqi']}, PM2.5: {record['pm2.5']}, 狀態: {record['status']}")
         df = pd.DataFrame(data["records"])
         df = df[['sitename', 'aqi', 'pm2.5', 'status']]
         df = df[df["sitename"].str.contains("林口")]
